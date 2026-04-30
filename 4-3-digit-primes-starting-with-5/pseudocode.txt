@@ -1,0 +1,32 @@
+ALGORITHM FindPrimesStartingWith5
+
+BEGIN
+    FOR number FROM 500 TO 599 DO
+        IF isPrime(number) THEN
+            PRINT number
+        END IF
+    END FOR
+END
+
+FUNCTION isPrime(n)
+BEGIN
+    IF n < 2 THEN
+        RETURN FALSE
+    END IF
+
+    IF n == 2 THEN
+        RETURN TRUE
+    END IF
+
+    IF n IS EVEN THEN
+        RETURN FALSE
+    END IF
+
+    FOR divisor FROM 3 TO sqrt(n) STEP 2 DO
+        IF n MOD divisor == 0 THEN
+            RETURN FALSE
+        END IF
+    END FOR
+
+    RETURN TRUE
+END FUNCTION
